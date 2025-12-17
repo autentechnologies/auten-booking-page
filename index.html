@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar call de 15 min</title>
+    <title>Agendar call de 15 min | Auten</title>
     <meta name="description" content="Selecione o horário que for melhor para você ou nos chame no Telegram / WhatsApp">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://autentechnologies.github.io/auten-booking-page/">
+    <meta property="og:title" content="Agendar call de 15 min | Auten">
+    <meta property="og:description" content="80+ startups & founders confiam na Auten. Agende uma conversa rápida de 15 minutos.">
+    <meta property="og:image" content="https://framerusercontent.com/images/f83c9nwlZghmsOqr5KiPD7NpS1I.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://autentechnologies.github.io/auten-booking-page/">
+    <meta property="twitter:title" content="Agendar call de 15 min | Auten">
+    <meta property="twitter:description" content="80+ startups & founders confiam na Auten. Agende uma conversa rápida de 15 minutos.">
+    <meta property="twitter:image" content="https://framerusercontent.com/images/f83c9nwlZghmsOqr5KiPD7NpS1I.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📅</text></svg>">
     
     <!-- Fontes Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -25,6 +42,7 @@
             --text-secondary: rgba(0, 0, 0, 0.5);
             --accent-orange: rgb(255, 92, 0);
             --border-color: rgb(251, 251, 248);
+            --success-green: rgb(16, 185, 129);
         }
         
         body {
@@ -32,11 +50,18 @@
             background-color: var(--bg-color);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             padding: 20px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
         }
         
         .container {
@@ -178,6 +203,7 @@
             color: rgba(0, 0, 0, 0.8);
         }
         
+
         /* Availability Indicator */
         .availability-container {
             display: flex;
@@ -240,12 +266,58 @@
             white-space: nowrap;
         }
         
-        /* Calendar iframe */
+
         .calendar-iframe {
             width: 100%;
-            min-height: 450px;
+            min-height: 570px;
             border: none;
             border-radius: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Footer */
+        .footer {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 56px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-link {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-copyright {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
         }
         
         /* Animação de entrada */
@@ -327,8 +399,21 @@
                 margin-left: 0;
             }
             
+
             .calendar-iframe {
                 min-height: 500px;
+            }
+            
+            .footer {
+                padding: 24px 16px;
+            }
+            
+            .footer-links {
+                gap: 16px;
+            }
+            
+            .footer-divider {
+                display: none;
             }
         }
         
@@ -340,55 +425,57 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero-section">
-            <!-- Avatar Group -->
-            <div class="avatar-group-container">
-                <div class="avatar-group">
-                    <div class="avatar-wrapper">
-                        <div class="avatar-item">
-                            <div class="avatar">
-                                <img src="https://framerusercontent.com/images/f83c9nwlZghmsOqr5KiPD7NpS1I.png?width=281&height=281" alt="">
+    <div class="main-content">
+        <div class="container">
+            <div class="hero-section">
+                <!-- Avatar Group -->
+                <div class="avatar-group-container">
+                    <div class="avatar-group">
+                        <div class="avatar-wrapper">
+                            <div class="avatar-item">
+                                <div class="avatar">
+                                    <img src="https://framerusercontent.com/images/f83c9nwlZghmsOqr5KiPD7NpS1I.png?width=281&height=281" alt="Cliente Auten">
+                                </div>
                             </div>
-                        </div>
-                        <div class="avatar-item">
-                            <div class="avatar">
-                                <img src="https://framerusercontent.com/images/E3taK89otlzdIR6McZAxomrQPyo.png?width=512&height=512" alt="">
+                            <div class="avatar-item">
+                                <div class="avatar">
+                                    <img src="https://framerusercontent.com/images/E3taK89otlzdIR6McZAxomrQPyo.png?width=512&height=512" alt="Cliente Auten">
+                                </div>
                             </div>
-                        </div>
-                        <div class="avatar-item">
-                            <div class="avatar">
-                                <img src="https://framerusercontent.com/images/UaeMNaCCtVrxQXhyIzZB7ihAs.png?width=512&height=512" alt="">
+                            <div class="avatar-item">
+                                <div class="avatar">
+                                    <img src="https://framerusercontent.com/images/UaeMNaCCtVrxQXhyIzZB7ihAs.png?width=512&height=512" alt="Cliente Auten">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <p class="avatar-text">80+ startups & founders confiam na Auten</p>
                 </div>
-                <p class="avatar-text">80+ startups & founders confiam na Auten</p>
-            </div>
-            
-            <!-- Main Heading -->
-            <h1 class="main-heading">Agendar call de 15 min</h1>
-            
-            <!-- Description -->
-            <p class="description">
-                Selecione o horário que for melhor para você ou nos chame no 
-                <a href="https://t.me/gabrielaguiar" target="_blank" rel="noopener">Telegram</a> / 
-                <a href="https://wa.me/+5511962800361" target="_blank" rel="noopener">WhatsApp</a>
-            </p>
-            
-            <!-- Availability Indicator -->
-            <div class="availability-container">
-                <div class="availability-indicator">
-                    <div class="pulse-circle pulse-circle-1"></div>
-                    <div class="pulse-circle pulse-circle-2"></div>
-                    <div class="pulse-circle pulse-circle-3"></div>
-                </div>
-                <span class="availability-text">2 spots available</span>
-            </div>
-        </div>
+                
+                <!-- Main Heading -->
+                <h1 class="main-heading">Agendar call de 15 min</h1>
+                
+                <!-- Description -->
+                <p class="description">
+                    Selecione o horário que for melhor para você ou nos chame no 
+                    <a href="https://t.me/gabrielaguiar" target="_blank" rel="noopener">Telegram</a> / 
+                    <a href="https://wa.me/+5511962800361" target="_blank" rel="noopener">WhatsApp</a>
+                </p>
+                
 
-        <!-- Calendar -->
-        <iframe class="calendar-iframe" style="width: 100%; min-height: 570px; border: none;" srcdoc="
+                <!-- Availability Indicator -->
+                <div class="availability-container">
+                    <div class="availability-indicator">
+                        <div class="pulse-circle pulse-circle-1"></div>
+                        <div class="pulse-circle pulse-circle-2"></div>
+                        <div class="pulse-circle pulse-circle-3"></div>
+                    </div>
+                    <span class="availability-text">2 spots available</span>
+                </div>
+            </div>
+
+            <!-- Calendar -->
+            <iframe class="calendar-iframe" srcdoc="
 &lt;html&gt;
     &lt;head&gt;
         &lt;style&gt;
@@ -430,6 +517,7 @@ Cal(&quot;init&quot;, &quot;quick-chat&quot;, {origin:&quot;https://cal.com&quot
     calLink: &quot;gabrielaguiar/15min&quot;,
   });
   Cal.ns[&quot;quick-chat&quot;](&quot;ui&quot;, {&quot;theme&quot;:&quot;light&quot;,&quot;styles&quot;:{&quot;branding&quot;:{&quot;brandColor&quot;:&quot;#FF5C00&quot;}},&quot;hideEventTypeDetails&quot;:false,&quot;layout&quot;:&quot;month_view&quot;});
+
   &lt;/script&gt;
         &lt;script type=&quot;module&quot;&gt;
             let height = 0
@@ -455,9 +543,21 @@ Cal(&quot;init&quot;, &quot;quick-chat&quot;, {origin:&quot;https://cal.com&quot
     &lt;body&gt;
 &lt;/html&gt;
 "></iframe>
-
-
+        </div>
     </div>
     
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Política de Privacidade</a>
+            <div class="footer-divider"></div>
+            <a href="#" class="footer-link">Termos de Uso</a>
+            <div class="footer-divider"></div>
+            <a href="#" class="footer-link">Contato</a>
+        </div>
+        <p class="footer-copyright">© 2024 Auten. Todos os direitos reservados.</p>
+    </footer>
+    
+
 </body>
 </html>
